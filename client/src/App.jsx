@@ -7,24 +7,26 @@ function App() {
   const fileInputRef = useRef(null);
 
   async function handleSubmit() {
-    const files = fileInputRef.current.files;
-    if (files.length > 0) {
-      let formData = new FormData();
-      for (let i = 0; i < files.length; i++) {
-        formData.append("files", files[i]);
-      }
-      const response = await axios.post(
-        "https://multer-test.vercel.app/send",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            name: `${pathName}-${Date.now()}`,
-          },
-        }
-      );
-      console.log(response);
-    }
+    // const files = fileInputRef.current.files;
+    // if (files.length > 0) {
+    //   let formData = new FormData();
+    //   for (let i = 0; i < files.length; i++) {
+    //     formData.append("files", files[i]);
+    //   }
+    //   const response = await axios.post(
+    //     "https://multer-test.vercel.app/send",
+    //     formData,
+    //     {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //         name: `${pathName}-${Date.now()}`,
+    //       },
+    //     }
+    //   );
+    //   console.log(response);
+    // }
+    const res = await axios.post("https://multer-test.vercel.app/send");
+    console.log(res);
   }
 
   async function connectServer() {

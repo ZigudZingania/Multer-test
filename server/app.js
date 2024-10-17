@@ -35,9 +35,13 @@ app.get("/", (req, res) => {
   res.json("Listening");
 });
 
-app.post("/send", upload.array("files"), (req, res) => {
-  console.log(req.files);
-  console.log(req.body.name);
+// app.post("/send", upload.array("files"), (req, res) => {
+//   console.log(req.files);
+//   console.log(req.body.name);
+//   res.send("working");
+// });
+
+app.post("/send", (req, res) => {
   res.send("working");
 });
 
