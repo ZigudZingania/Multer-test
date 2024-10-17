@@ -38,6 +38,7 @@ app.get("/", (req, res) => {
 app.post("/send", upload.array("files"), (req, res) => {
   console.log(req.files);
   console.log(req.body.name);
+  res.send("working");
 });
 
 app.listen(PORT, () => {
