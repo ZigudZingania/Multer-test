@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
@@ -14,7 +14,7 @@ function App() {
         formData.append("files", files[i]);
       }
       const response = await axios.post(
-        "http://localhost:3000/send",
+        "https://multer-test.vercel.app/send",
         formData,
         {
           headers: {
@@ -26,6 +26,15 @@ function App() {
       console.log(response);
     }
   }
+
+  async function connectServer() {
+    let response = await axios.get("https://multer-test.vercel.app/");
+    console.log(response);
+  }
+
+  useEffect(() => {
+    connectServer();
+  }, []);
 
   return (
     <>
